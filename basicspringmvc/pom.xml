@@ -20,6 +20,7 @@
 		<hibernate.version>5.2.11.Final</hibernate.version>
 		<hibernate.validator>5.4.1.Final</hibernate.validator>
 		<c3p0.version>0.9.5.2</c3p0.version>
+		<jettyVersion>9.4.19.v20190610</jettyVersion>
 	</properties>
 
 	<dependencies>
@@ -109,12 +110,12 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<sourceDirectory>src/main/java</sourceDirectory>
+		<!-- <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
             </resource>
-        </resources>
+        </resources> -->
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -128,6 +129,14 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.1</version>
 			</plugin>
+			<plugin>			
+		      <groupId>org.eclipse.jetty</groupId>
+		      <artifactId>jetty-maven-plugin</artifactId>
+		      <version>${jettyVersion}</version>
+		      <configuration>
+		        <war>${project.basedir}/target/${project.artifactId}-${project.version}.${project.packaging}</war>
+		      </configuration>
+		    </plugin>
 		</plugins>
 	</build>
 </project>
