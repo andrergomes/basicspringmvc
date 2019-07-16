@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  dev-postgres-compose:
+    image: postgres 
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "basicspringmvc"
+    ports:
+      - "15432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data     
+    networks:
+      - postgres-compose-network
+      
+  pgadmin-compose:
+    image: dpage/pgadmin4
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: "mamute@gmail.com"     
+      PGADMIN_DEFAULT_PASSWORD: "postgres"
+    ports:
+      - "16543:80"
+    depends_on:
+      - dev-postgres-compose
+    networks:
+      - postgres-compose-network
+volumes:
+  pgdata:
+    driver: local
+networks: 
+  postgres-compose-network:
+    driver: bridge
