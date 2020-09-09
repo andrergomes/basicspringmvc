@@ -18,7 +18,7 @@
 		<servlets.version>3.1.0</servlets.version>
 		<jsp.version>2.3.1</jsp.version>
 		<hibernate.version>5.2.11.Final</hibernate.version>
-		<hibernate.validator>5.4.1.Final</hibernate.validator>
+		<hibernate.validator>5.4.2.Final</hibernate.validator>
 		<c3p0.version>0.9.5.2</c3p0.version>
 		<jettyVersion>9.4.19.v20190610</jettyVersion>
 	</properties>
